@@ -1,1 +1,1 @@
-#init1
+#init1 INIT
