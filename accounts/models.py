@@ -11,7 +11,7 @@ class CustomerMod(models.Model):
 
 # Displays the way how the Database looks.
     def __str__(self):
-        return self.name + ' - ' +self.email
+        return self.name
 
 class Tag(models.Model):
     name            =  models.CharField(max_length=200, null =True)
@@ -32,7 +32,7 @@ class ProductMod(models.Model):
     tags            =  models.ManyToManyField(Tag)
 
     def __str__(self):
-        return self.name + " - " + self.category
+        return self.name
 
 
 
@@ -48,7 +48,7 @@ class OrderMod(models.Model):
     product         =  models.ForeignKey(ProductMod, null =True, on_delete= models.SET_NULL)
     date_created    =  models.DateTimeField(auto_now_add=True,null=True)
     status          =  models.CharField(max_length=200,null=True,choices=STATUS)
-    
+    note            =  models.CharField(max_length=200,null=True)
 
-    # def __str__(self):
-    #     return self.customer
+    def __str__(self):
+        return self.product.name
